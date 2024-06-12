@@ -13,6 +13,7 @@
 	
 	<table class="tbl">
 		<thead>
+			<th>Num</th>
 			<th>City</th>
 			<th>Gion</th>
 			<th>Status</th>
@@ -22,7 +23,8 @@
 		<tbody>
 			<c:forEach items="${requestScope.list}" var="weather">
 				<tr>
-					<td>${pageScope.weather.city}</td>
+					<td>${pageScope.weather.num}</td>
+					<td><a href="./detail">${pageScope.weather.city}</a></td>
 					<td>${pageScope.weather.gion}</td>
 					<td>${pageScope.weather.status}</td>
 					<td>${pageScope.weather.humidity}</td>
