@@ -1,0 +1,14 @@
+@charset "UTF-8";
+	.tbl{
+		border: solid olive 2px;
+		border-spacing: 0;
+		border-collapse: collapse;
+		width: 60%;
+		margin: 10px auto;
+	}
+	.tbl td, .tbl th{
+		border: dashed red 1px;
+		height: 40px;
+		text-align: center;
+		
+    }
