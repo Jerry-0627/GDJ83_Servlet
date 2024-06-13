@@ -3,6 +3,7 @@ package com.winter.home.weather;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -46,9 +47,9 @@ public class WeatherDAO {
 
 		return dtos;
 
-		// detail
 	}
 
+	// detail
 	public WeatherDTO getDetail(WeatherDTO weatherdto) throws Exception {
 		List<WeatherDTO> ar = this.getWeathers();
 		WeatherDTO result = null;
@@ -60,5 +61,26 @@ public class WeatherDAO {
 		}
 
 		return result;
+	}
+
+	// add
+	public void add(WeatherDTO weatherDTO) throws Exception {
+		// 프린트를 했을 떄 도시명-기온-상태-습도 가 나올 수 있도록 테스트 해보기
+		List<WeatherDTO> ar = this.getWeathers();
+
+		StringBuffer sb = new StringBuffer();
+		sb.append(ar.size() + 1);
+		sb.append("-" + weatherDTO.getCity());
+		sb.append("-" + weatherDTO.getGion());
+		sb.append("-" + weatherDTO.getStatus());
+		sb.append("-" + weatherDTO.getHumidity());
+		String stg = sb.toString();
+
+		File file = new File("C:\\study", "weather.txt");
+		System.out.println(stg);
+		FileWriter fr = new FileWriter(file, true);
+		fr.write(stg + "\r\n");
+		fr.flush();
+
 	}
 }

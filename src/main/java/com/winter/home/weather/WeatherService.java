@@ -36,4 +36,13 @@ public class WeatherService {
 		return weatherDTO;
 	}
 
+	// add
+	public void add(WeatherDTO weatherDTO) {
+		try {
+			weatherDAO.add(weatherDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

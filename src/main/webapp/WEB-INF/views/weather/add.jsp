@@ -8,5 +8,26 @@
 </head>
 <body>
 	<h1>날씨 정보 추가</h1>
+	
+	<form action="./add" method="post">
+		<div>
+			<label>도시명</label>
+			<input type="text" name="city">
+		</div>
+		<div>
+			<label>기온</label>
+			<input type="text" name="gion">
+		</div>
+		<div>
+			<label>날씨</label>
+			<input type="text" name="statue">
+		</div>
+		<div>
+			<label>습도</label>
+			<input type="text" name="humidity">
+		</div>
+		<input type="submit" value="등록">
+		<button type="submit">등록</button>
+	</form>
 </body>
 </html>
