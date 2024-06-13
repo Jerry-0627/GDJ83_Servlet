@@ -7,10 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Index Page</h1>
-	<a href="/student/list?num=2">학생 리스트</a>
-	<a href="/weather/list">날씨 리스트</a>
-	<a href="/self/list">혼자 공부</a>
+	<h1>혼자 공부 리스트</h1>
+	<table>
+		<thead>
+			<th>이름</th>
+			<th>키</th>
+			<th>몸무게</th>
+		</thead>
+		
+	
+	</table>
 	
 </body>
 </html>
