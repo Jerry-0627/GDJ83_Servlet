@@ -13,6 +13,8 @@ public class WeatherDAO {
 
 	// getWeathers
 	// 파일에 날씨정보들을 읽어와서 파싱한 후에 DTO에 담아서 리턴해줌.
+
+	// list
 	public List<WeatherDTO> getWeathers() throws Exception {
 		ArrayList<WeatherDTO> dtos = new ArrayList<WeatherDTO>();
 		File file = new File("C:\\study", "weather.txt");
@@ -30,6 +32,7 @@ public class WeatherDAO {
 			while (stn.hasMoreTokens()) {
 				WeatherDTO dto = new WeatherDTO();
 				dto.setNum(Long.parseLong(stn.nextToken().trim()));
+
 				dto.setCity(stn.nextToken().trim());
 				dto.setGion(Double.parseDouble(stn.nextToken().trim()));
 				dto.setStatus(stn.nextToken().trim());
@@ -42,5 +45,20 @@ public class WeatherDAO {
 		fr.close();
 
 		return dtos;
+
+		// detail
+	}
+
+	public WeatherDTO getDetail(WeatherDTO weatherdto) throws Exception {
+		List<WeatherDTO> ar = this.getWeathers();
+		WeatherDTO result = null;
+		for (WeatherDTO w : ar) {
+			if (w.getNum() == weatherdto.getNum()) {
+				result = w;
+				break;
+			}
+		}
+
+		return result;
 	}
 }
