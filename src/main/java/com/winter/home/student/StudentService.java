@@ -1,32 +1,36 @@
 package com.winter.home.student;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class StudentService {
+	private StudentDAO studentDAO;
 
-	public List<Student> getStudents() {
-		ArrayList<Student> ar = new ArrayList<Student>();
-		Random random = new Random();
-
-		for (int i = 0; i < 5; i++) {
-			Student student = new Student();
-			student.setNum(i + 1);
-			student.setName("Name" + i);
-			student.setAvg(random.nextInt(100) + random.nextDouble());
-			ar.add(student);
-		}
-		return ar;
-
+	public StudentService() {
+		studentDAO = new StudentDAO();
 	}
 
-	public Student makeStudent() {
-		Student student = new Student();
-		student.setNum(1);
-		student.setName("winter");
-		student.setAvg(56.32);
+	// list
+	public List<StudentDTO> getStudents() {
+		List<StudentDTO> ar = null;
+		try {
+			ar = studentDAO.getStudent();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ar;
+	}
 
-		return student;
+	// detail
+	public StudentDTO getdetail(StudentDTO studentDTO) {
+		try {
+			studentDTO = studentDAO.getdetail(studentDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			studentDTO = null;
+		}
+
+		return studentDTO;
 	}
 }

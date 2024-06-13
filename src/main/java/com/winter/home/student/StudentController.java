@@ -36,18 +36,29 @@ public class StudentController {
 		String method = request.getMethod();
 
 		if (divi[2].equals("list")) {
-			List<Student> ar = studentService.getStudents();
+			List<StudentDTO> ar = studentService.getStudents();
 			request.setAttribute("list", ar);
 			action.setPath("/WEB-INF/views/student/list.jsp");
 		} else if (divi[2].equals("detail")) {
-			Student student = this.studentService.makeStudent();
-			request.setAttribute("s", student);
+			String num = request.getParameter("num");
+			StudentDTO studentDTO = new StudentDTO();
+			studentDTO.setNum(Integer.parseInt(num));
+			studentDTO = studentService.getdetail(studentDTO);
+			if (studentDTO != null) {
+				request.setAttribute("detail", studentDTO);
+				action.setPath("/WEB-INF/views/student/detail.jsp");
+			} else {
+				request.setAttribute("message", "없음");
+				action.setPath("/WEB-INF/views/commons/message.jsp");
+
+			}
+
 			action.setPath("/WEB-INF/views/student/detail.jsp");
 		} else if (divi[2].equals("add")) {
 
 			if (method.toUpperCase().equals("POST")) {
 				System.out.println("학생 등록 데이터를 꺼내야함");
-				Student student = new Student();
+				StudentDTO student = new StudentDTO();
 
 				String name = request.getParameter("name");
 				student.setName(name);
