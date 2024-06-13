@@ -20,7 +20,7 @@
 		</div>
 		<div>
 			<label>날씨</label>
-			<input type="text" name="statue">
+			<input type="text" name="status">
 		</div>
 		<div>
 			<label>습도</label>

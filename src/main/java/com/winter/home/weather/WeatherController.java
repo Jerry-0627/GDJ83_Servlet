@@ -53,6 +53,8 @@ public class WeatherController {
 				String city = request.getParameter("city");
 				double gion = Double.parseDouble(request.getParameter("gion"));
 				String status = request.getParameter("status");
+				System.out.println(request.getParameter("status"));
+
 				int humidity = Integer.parseInt(request.getParameter("humidity"));
 				WeatherDTO weatherdto = new WeatherDTO();
 				weatherdto.setCity(city);
