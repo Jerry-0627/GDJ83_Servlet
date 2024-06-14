@@ -62,11 +62,20 @@ public class WeatherController {
 				weatherdto.setStatus(status);
 				weatherdto.setHumidity(humidity);
 				weatherService.add(weatherdto);
+//forward 방식으로 해결했을 떄,..
+//				List<WeatherDTO> ar = weatherService.getWeathers();
+//				request.setAttribute("list", ar);
+//				action.setPath("/WEB-INF/views/weather/list.jsp");
+//				action.setPath("/weather/list"); 절대경로				
+//				action.setParth("list") 상대결로(현재 위치를기준으로) ./는 생략 가능.
+				action.setPath("list");
+				action.setFlag(false); // false로 바꿔서 리턴해야 redirect로 내보냄.
 			} else {
+
+				action.setPath("/WEB-INF/views/weather/add.jsp");
 				// 갯은 액션에 값을 넣고 이동하기만 하면 끝이다.
 
 			}
-			action.setPath("/WEB-INF/views/weather/add.jsp");
 		} else if (divi[2].equals("delete")) {
 
 		} else {

@@ -82,6 +82,9 @@ public class FrontController extends HttpServlet {
 				// 여기서 벗어나서 그쪽 페이지로 가라
 			} else {
 				response.sendRedirect(action.getPath());
+				// jsp를 가지 말고 응답으로 바로 내보내세요란는 것.
+				// 매개변수로 니가 다시 접속할 URL 주소를 준다.
+				// action의 flag가 false가 되야 여기로 온다.
 			}
 		}
 
