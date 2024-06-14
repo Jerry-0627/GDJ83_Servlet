@@ -77,7 +77,6 @@ public class WeatherDAO {
 		String stg = sb.toString();
 
 		File file = new File("C:\\study", "weather.txt");
-		System.out.println(stg);
 		FileWriter fr = new FileWriter(file, true);
 		fr.write(stg + "\r\n");
 		fr.flush();
@@ -98,20 +97,19 @@ public class WeatherDAO {
 
 		File file = new File("c:\\study", "weather.txt");
 		FileWriter fr = new FileWriter(file, false);
-		StringBuffer sb = new StringBuffer();
 		int i = 1;
 		for (WeatherDTO a : ar) {
+			StringBuffer sb = new StringBuffer();
 			sb.append(i + "-");
 			sb.append(a.getCity() + "-");
 			sb.append(a.getGion() + "-");
 			sb.append(a.getStatus() + "-");
-			sb.append(a.getHumidity() + "-");
+			sb.append(a.getHumidity());
+			String stn = sb.toString();
+			fr.write(stn + "\r\n");
+			fr.flush();
 			i++;
 		}
-		String stn = sb.toString();
-
-		fr.write(stn + "\r\n");
-		fr.flush();
 
 	}
 }
