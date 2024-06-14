@@ -85,8 +85,17 @@ public class WeatherController {
 			action.setFlag(false);
 			action.setPath("/weather/list");
 
-		} else {
+		} else if (divi[2].equals("update")) {
 
+			if (method.toUpperCase().equals("POST")) {
+
+			} else {
+				WeatherDTO weatherDTO = new WeatherDTO();
+				weatherDTO.setNum(Long.parseLong(request.getParameter("num")));
+				weatherDTO = weatherService.getDetail(weatherDTO);
+				request.setAttribute("dto", weatherDTO);
+				action.setPath("/WEB-INF/views/weather/update.jsp");
+			}
 		}
 
 		return action;

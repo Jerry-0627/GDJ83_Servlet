@@ -18,15 +18,27 @@
 		 <!-- 입력된 값이 value에 들어가고 파라미터로 가니까 미리 지우려는 번호를 넣어둬라 -->
 		 <!-- 이엘의 문제점은 수정할 수 있다는 것, 따라서 readonly를 해줌 -->
 	</form>
+
+
 	
 	<button id="btn">DELETE</button>
+	<button id="up">UPDATE</button>
 	
 	<script type="text/javascript">
 		const frm = document.getElementById("frm");
 		const btn = document.getElementById("btn");
+		const up = document.getElementById("up");
+		
+		up.addEventListener("click", function(){
+			frm.setAttribute("action", "./update");
+			frm.setAttribute("method", "get");
+			frm.method="get"
+			frm.submit();
+		})
 		btn.addEventListener("click", function(){
 			frm.submit();
 		})
+
 	</script>
 </body>
 </html>

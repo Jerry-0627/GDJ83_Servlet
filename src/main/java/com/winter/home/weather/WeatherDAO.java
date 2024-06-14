@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -69,7 +70,8 @@ public class WeatherDAO {
 		List<WeatherDTO> ar = this.getWeathers();
 
 		StringBuffer sb = new StringBuffer();
-		sb.append(ar.size() + 1);
+		Calendar ca = Calendar.getInstance();
+		sb.append(ca.getTimeInMillis());
 		sb.append("-" + weatherDTO.getCity());
 		sb.append("-" + weatherDTO.getGion());
 		sb.append("-" + weatherDTO.getStatus());
