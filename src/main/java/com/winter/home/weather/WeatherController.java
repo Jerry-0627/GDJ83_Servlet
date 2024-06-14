@@ -77,6 +77,13 @@ public class WeatherController {
 
 			}
 		} else if (divi[2].equals("delete")) {
+			String num = request.getParameter("num");// 랜선을 타고오는 모든것은 String 타입이다.
+			WeatherDTO weatherDTO = new WeatherDTO();
+			weatherDTO.setNum(Long.parseLong(num));
+			// 누구를 지울지..
+			weatherService.delete(weatherDTO);
+			action.setFlag(false);
+			action.setPath("/weather/list");
 
 		} else {
 

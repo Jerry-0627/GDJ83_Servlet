@@ -22,5 +22,7 @@
 	<h3>수학 점수 : ${requestScope.detail.math}</h3>
 	<h3>총합 점수 : ${requestScope.detail.toal}</h3>
 	<h3>평균 점수 : ${requestScope.detail.avg}</h3>
+	
+
 </body>
 </html>

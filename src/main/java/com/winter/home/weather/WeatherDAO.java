@@ -83,4 +83,35 @@ public class WeatherDAO {
 		fr.flush();
 
 	}
+
+	// delete (매개변수 dto 받아오고)
+	public void delete(WeatherDTO weatherDTO) throws Exception {
+		// 리스트를 불러 와서 지우려고 하는 num과 일치하는 것을 list에서 삭제한다.
+		// list를 파일에 다시 저장한다.
+		List<WeatherDTO> ar = this.getWeathers();
+		for (WeatherDTO a : ar) {
+			if (a.getNum() == weatherDTO.getNum()) {
+				ar.remove(a);
+				break;
+			}
+		}
+
+		File file = new File("c:\\study", "weather.txt");
+		FileWriter fr = new FileWriter(file, false);
+		StringBuffer sb = new StringBuffer();
+		int i = 1;
+		for (WeatherDTO a : ar) {
+			sb.append(i + "-");
+			sb.append(a.getCity() + "-");
+			sb.append(a.getGion() + "-");
+			sb.append(a.getStatus() + "-");
+			sb.append(a.getHumidity() + "-");
+			i++;
+		}
+		String stn = sb.toString();
+
+		fr.write(stn + "\r\n");
+		fr.flush();
+
+	}
 }
