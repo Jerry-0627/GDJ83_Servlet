@@ -69,9 +69,21 @@ public class WeatherDAO {
 		// 프린트를 했을 떄 도시명-기온-상태-습도 가 나올 수 있도록 테스트 해보기
 		List<WeatherDTO> ar = this.getWeathers();
 
+//		StringBuffer sb = new StringBuffer();
+//		Calendar ca = Calendar.getInstance();
+//		sb.append(ca.getTimeInMillis());
+//		sb.append("-" + weatherDTO.getCity());
+//		sb.append("-" + weatherDTO.getGion());
+//		sb.append("-" + weatherDTO.getStatus());
+//		sb.append("-" + weatherDTO.getHumidity());
+//		String stg = sb.toString();
+//
+//		File file = new File("C:\\study", "weather.txt");
+//		FileWriter fr = new FileWriter(file, true);
+//		fr.write(stg + "\r\n");
+//		fr.flush();
 		StringBuffer sb = new StringBuffer();
-		Calendar ca = Calendar.getInstance();
-		sb.append(ca.getTimeInMillis());
+		sb.append(ar.size() + 1);
 		sb.append("-" + weatherDTO.getCity());
 		sb.append("-" + weatherDTO.getGion());
 		sb.append("-" + weatherDTO.getStatus());
@@ -79,6 +91,7 @@ public class WeatherDAO {
 		String stg = sb.toString();
 
 		File file = new File("C:\\study", "weather.txt");
+		System.out.println(stg);
 		FileWriter fr = new FileWriter(file, true);
 		fr.write(stg + "\r\n");
 		fr.flush();

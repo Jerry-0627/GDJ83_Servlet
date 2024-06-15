@@ -15,8 +15,7 @@ public class SelfService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			List<>
 		}
-		return selfDTO;
+		return arSelfDTO;
 	}
 }

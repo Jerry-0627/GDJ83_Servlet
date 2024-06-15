@@ -24,7 +24,6 @@ public class StudentController {
 	public Action start(HttpServletRequest request) {
 
 		String[] divi = request.getRequestURI().split("/");
-		System.out.println(divi[2]);
 
 		// list => 학생 정보 전체 출력
 		// detail => 학생 한명 정보 출력
@@ -37,6 +36,7 @@ public class StudentController {
 
 		if (divi[2].equals("list")) {
 			List<StudentDTO> ar = studentService.getStudents();
+			System.out.println("리스트 눌림");
 			request.setAttribute("list", ar);
 			action.setPath("/WEB-INF/views/student/list.jsp");
 		} else if (divi[2].equals("detail")) {
