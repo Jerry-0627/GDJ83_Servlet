@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<h1>학생 목록 이정민</h1>
+	<h1>학생 목록</h1>
 	<!-- 반복문 등을 위해 JSTL이라는 라이브러리가 있다. -->
 	<div>
 		<img alt="" src="/resources/images/DAM1.jpg">
