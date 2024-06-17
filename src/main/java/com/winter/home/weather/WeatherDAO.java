@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -100,6 +99,10 @@ public class WeatherDAO {
 
 	// delete (매개변수 dto 받아오고)
 	public void delete(WeatherDTO weatherDTO) throws Exception {
+		// list불러와서
+		// 지울려고 하는 num과 일치하는 것을 리스트에서 삭제
+		// list를 파일에 다시 저장
+
 		// 리스트를 불러 와서 지우려고 하는 num과 일치하는 것을 list에서 삭제한다.
 		// list를 파일에 다시 저장한다.
 		List<WeatherDTO> ar = this.getWeathers();
@@ -125,6 +128,39 @@ public class WeatherDAO {
 			fr.flush();
 			i++;
 		}
+	}
 
+	public void update(WeatherDTO weatherDTO) throws Exception {
+		List<WeatherDTO> ar = this.getWeathers();
+		// add(Object); 끝에 추가
+		// add(index, Object); 삽입
+		// set(index. object); 수정
+		for (int i = 0; i < ar.size(); i++) {
+			if (weatherDTO.getNum() == ar.get(i).getNum()) {
+				ar.get(i).setCity(weatherDTO.getCity());
+				ar.set(i, weatherDTO);
+				break;
+			}
+		}
+
+		File file = new File("c:\\study\\weather.txt");
+
+		FileWriter fw = new FileWriter(file, false);
+		StringBuffer stringBuffer = new StringBuffer();
+		for (WeatherDTO dto : ar) {
+			stringBuffer.append(dto.getNum());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getCity());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getGion());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getStatus());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getHumidity());
+			stringBuffer.append("\r\n");
+		}
+		fw.write(stringBuffer.toString() + "\r\n");
+		fw.flush();
+		fw.close();
 	}
 }

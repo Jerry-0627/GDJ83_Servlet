@@ -8,7 +8,6 @@ public class WeatherTest {
 		// TODO Auto-generated method stub
 		WeatherDAO weatherDAO = new WeatherDAO();
 
-		WeatherDAO.gerWeather();
 	}
 
 }

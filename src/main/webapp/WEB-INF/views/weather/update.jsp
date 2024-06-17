@@ -16,15 +16,15 @@
 		</div>
 		<div>
 			<label>기온</label>
-			<input type="text" name="gion">
+			<input type="text" name="gion" value="${dto.gion}">
 		</div>
 		<div>
 			<label>날씨</label>
-			<input type="text" name="status">
+			<input type="text" name="status" value="${dto.status}">
 		</div>
 		<div>
 			<label>습도</label>
-			<input type="text" name="humidity">
+			<input type="text" name="humidity" value="${dto.humidity}">
 		</div>
 		<input type="submit" value="등록">
 		<button type="submit">등록</button>

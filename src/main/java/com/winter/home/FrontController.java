@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.winter.home.student.StudentController;
 import com.winter.home.weather.WeatherController;
 
-import OnlySelfStudy.SelfController;
-
 /**
  * Servlet implementation class HomeController
  */
@@ -42,7 +40,7 @@ public class FrontController extends HttpServlet {
 		System.out.println("실행 됨");
 		StudentController sc = new StudentController();
 		WeatherController wc = new WeatherController();
-		SelfController selfcon = new SelfController();
+//		SelfController selfcon = new SelfController();
 
 		String uri = request.getRequestURI();
 		String method = request.getMethod();
@@ -63,8 +61,6 @@ public class FrontController extends HttpServlet {
 				action = sc.start(request);
 			} else if (ar[1].equals("weather")) {
 				action = wc.start(request);
-			} else if (ar[1].equals("self")) {
-				action = sc.start(request);
 			}
 
 			// 3. StringTokennizer

@@ -46,14 +46,23 @@ public class WeatherService {
 		}
 	}
 
-	public void delete(WeatherDTO waetherDTO) {
+	public void delete(WeatherDTO weatherDTO) {
 
 		try {
-			weatherDAO.delete(waetherDTO);
+			weatherDAO.delete(weatherDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
 
+	public void update(WeatherDTO weatherDTO) {
+
+		try {
+			weatherDAO.update(weatherDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

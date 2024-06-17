@@ -53,9 +53,8 @@ public class WeatherController {
 				String city = request.getParameter("city");
 				double gion = Double.parseDouble(request.getParameter("gion"));
 				String status = request.getParameter("status");
-				System.out.println(request.getParameter("status"));
-
 				int humidity = Integer.parseInt(request.getParameter("humidity"));
+
 				WeatherDTO weatherdto = new WeatherDTO();
 				weatherdto.setCity(city);
 				weatherdto.setGion(gion);
@@ -68,8 +67,8 @@ public class WeatherController {
 //				action.setPath("/WEB-INF/views/weather/list.jsp");
 //				action.setPath("/weather/list"); 절대경로				
 //				action.setParth("list") 상대결로(현재 위치를기준으로) ./는 생략 가능.
-				action.setPath("list");
 				action.setFlag(false); // false로 바꿔서 리턴해야 redirect로 내보냄.
+				action.setPath("list");
 			} else {
 
 				action.setPath("/WEB-INF/views/weather/add.jsp");
@@ -88,6 +87,25 @@ public class WeatherController {
 		} else if (divi[2].equals("update")) {
 
 			if (method.toUpperCase().equals("POST")) {
+				WeatherDTO weatherDTO = new WeatherDTO();
+				weatherDTO.setNum(Long.parseLong(request.getParameter("num")));
+				String city = request.getParameter("city");
+				double gion = Double.parseDouble(request.getParameter("gion"));
+				int humidity = Integer.parseInt(request.getParameter("humidity"));
+				String status = request.getParameter("status");
+				weatherDTO.setCity(city);
+				weatherDTO.setGion(gion);
+				weatherDTO.setHumidity(humidity);
+				weatherDTO.setStatus(status);
+
+				weatherService.update(weatherDTO);
+
+				// 이미 만들어진 기능 호출은 리다이렉트
+
+				action.setFlag(false);// 트루면 포워드 펄스면 리다이렉트
+				action.setPath("./list");// 포워드면 jsp경로 리다이렉트면 현재 경로
+
+//forward 방식으로 해결했을 떄,..
 
 			} else {
 				WeatherDTO weatherDTO = new WeatherDTO();
